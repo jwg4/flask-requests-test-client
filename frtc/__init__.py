@@ -16,4 +16,4 @@ class Response(object):
 
     @property
     def apparent_encoding(self):
-        return 'utf-8'
+        return 'ascii'
