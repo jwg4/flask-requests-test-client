@@ -1,3 +1,6 @@
+import chardet
+
+
 class TestClient(object):
     def __init__(self, client):
         self.client = client
@@ -16,4 +19,4 @@ class Response(object):
 
     @property
     def apparent_encoding(self):
-        return 'ascii'
+        return chardet.detect(self.response.get_data())['encoding']
