@@ -1,3 +1,4 @@
+import logging
 import threading
 import unittest
 
@@ -6,6 +7,7 @@ import flask
 
 from frtc import TestClient
 
+logging.getLogger('werkzeug').setLevel(logging.ERROR)
 
 class ComparisonTestCase(unittest.TestCase):
     @classmethod
