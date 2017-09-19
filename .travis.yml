@@ -11,6 +11,8 @@ matrix:
     - python: '2.6'
 install:
 - pip install flake8==2.5.0
+- pip install flask
+- pip install requests
 script:
 - flake8 . --max-complexity 5 --max-line-length 99 --ignore E201,E202,E402
 - python -m doctest README.md
