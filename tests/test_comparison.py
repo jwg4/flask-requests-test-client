@@ -1,4 +1,4 @@
-import multiprocessing
+import threading
 import unittest
 
 import requests
@@ -31,7 +31,7 @@ class ComparisonTestCase(unittest.TestCase):
         def run_server():
             cls.app.run(host="localhost", port=5020)
 
-        cls.server_process = multiprocessing.Process(target=run_server)
+        cls.server_thread = threading.Thread(target=run_server)
         cls.server_thread.start()
 
     @classmethod
