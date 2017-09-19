@@ -1,5 +1,6 @@
 import logging
 import threading
+import time
 import unittest
 
 import requests
@@ -34,6 +35,8 @@ class ComparisonTestCase(unittest.TestCase):
 
         cls.server_thread = threading.Thread(target=run_server)
         cls.server_thread.start()
+
+        time.sleep(2)
 
     @classmethod
     def tearDownClass(cls):
