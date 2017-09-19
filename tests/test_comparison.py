@@ -38,7 +38,7 @@ class ComparisonTestCase(unittest.TestCase):
     def tearDownClass(cls):
         requests.get('http://localhost:5020/shutdown')
     
-    def setUp(self)    
+    def setUp(self):
         self.test_result = self.test_client.get('/foo')
         self.requests_result = requests.get('http://localhost:5020/foo')
 
