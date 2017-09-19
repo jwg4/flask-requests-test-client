@@ -10,7 +10,7 @@ setup(
     license='MIT',
     packages=['frtc'],
     zip_safe=False,
-    install_requires=["flask"],
+    install_requires=[],
     test_suite="tests",
-    tests_require=["requests"]
+    tests_require=["flask", "requests"]
 )
