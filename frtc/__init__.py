@@ -1,7 +1,7 @@
 class TestClient(object):
     def __init__(self, client):
         self.client = client
-        
+
     def get(self, url):
         return Response(self.client.get(url))
 

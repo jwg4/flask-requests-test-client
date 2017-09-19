@@ -9,6 +9,7 @@ from frtc import TestClient
 
 logging.getLogger('werkzeug').setLevel(logging.ERROR)
 
+
 class ComparisonTestCase(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
@@ -37,7 +38,7 @@ class ComparisonTestCase(unittest.TestCase):
     @classmethod
     def tearDownClass(cls):
         requests.get('http://localhost:5020/shutdown')
-    
+
     def setUp(self):
         self.test_result = self.test_client.get('/foo')
         self.requests_result = requests.get('http://localhost:5020/foo')
