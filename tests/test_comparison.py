@@ -3,7 +3,7 @@ import unittest
 
 import requests
 
-from ftrc import TestClient
+from frtc import TestClient
 
 
 class ComparisonTestCase(unittest.TestCase):

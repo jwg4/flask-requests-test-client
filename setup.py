@@ -8,7 +8,7 @@ setup(
     author='Jack Grahl',
     author_email='jack.grahl@gmail.com',
     license='MIT',
-    packages=['ftrc'],
+    packages=['frtc'],
     zip_safe=False,
     install_requires=["flask"],
     test_suite="tests",
