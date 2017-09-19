@@ -18,15 +18,13 @@ class ComparisonTestCase(unittest.TestCase):
 
         @cls.app.route('/shutdown')
         def server_shutdown():
-            if not current_app.testing:
-                abort(404)
-            shutdown = request.environ.get('werkzeug.server.shutdown')
+            shutdown = flask.request.environ.get('werkzeug.server.shutdown')
             if not shutdown:
-                abort(500)
+                flask.abort(500)
             shutdown()
             return 'Shutting down...'
 
-        cls.test_client = TestClient(cls.app.test_client)
+        cls.test_client = TestClient(cls.app.test_client())
 
         def run_server():
             cls.app.run(host="localhost", port=5020)
