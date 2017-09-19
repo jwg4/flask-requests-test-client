@@ -47,3 +47,9 @@ class ComparisonTestCase(unittest.TestCase):
             self.test_result.status_code,
             self.requests_result.status_code
         )
+
+    def test_apparent_encoding(self):
+        self.assertEqual(
+            self.test_result.apparent_encoding,
+            self.requests_result.apparent_encoding
+        )
