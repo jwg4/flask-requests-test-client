@@ -2,6 +2,7 @@ import multiprocessing
 import unittest
 
 import requests
+import flask
 
 from frtc import TestClient
 
@@ -9,7 +10,7 @@ from frtc import TestClient
 class ComparisonTestCase(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.app = Flask(cls.__name__)
+        cls.app = flask.Flask(cls.__name__)
 
         @cls.app.route('/foo')
         def foo():
