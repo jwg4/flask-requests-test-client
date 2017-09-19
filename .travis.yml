@@ -18,4 +18,4 @@ script:
 - python -m doctest README.md
 - python setup.py test
 notifications:
-email: false
+  email: false
