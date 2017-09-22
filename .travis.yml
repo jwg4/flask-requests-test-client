@@ -13,7 +13,6 @@ install:
 - pip install -r testing_requirements.txt
 script:
 - flake8 . --max-complexity 5 --max-line-length 99 --ignore E201,E202,E402
-- python -m doctest README.md
-- python setup.py test
+- pytest --doctest-glob='*.md'
 notifications:
   email: false
