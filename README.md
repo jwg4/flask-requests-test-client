@@ -20,8 +20,9 @@ This package is an alternative to the flask test client, one which has a very si
 >>> r.headers['content-type']
 'application/json'
 >>> r.encoding
+'utf-8'
 >>> r.text
-b'{\n  "msg": "Hello, World!"\n}\n'
+'{\n  "msg": "Hello, World!"\n}\n'
 >>> r.json()
 {'msg': 'Hello, World!'}
 
