@@ -10,7 +10,7 @@ setup(
     license='MIT',
     packages=['frtc'],
     zip_safe=False,
-    install_requires=['chardet'],
+    install_requires=['chardet', 'requests'],
     test_suite="tests",
     tests_require=["flask", "requests"]
 )

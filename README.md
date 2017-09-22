@@ -17,13 +17,12 @@ This package is an alternative to the flask test client, one which has a very si
 >>> r.status_code
 200
 
-#>>> r.headers['content-type']
-#'application/json; charset=utf8'
-#>>> r.encoding
-#'utf-8'
-#>>> r.text
-#u'{"msg":"Hello, World!"}'
-#>>> r.json()
-#{u'msg': u'Hello, World!'}
+>>> r.headers['content-type']
+'application/json'
+>>> r.encoding
+>>> r.text
+b'{\n  "msg": "Hello, World!"\n}\n'
+>>> r.json()
+{'msg': 'Hello, World!'}
 
 ```

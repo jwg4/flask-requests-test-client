@@ -1,4 +1,8 @@
+import json
+
 import chardet
+
+from requests.utils import get_encoding_from_headers
 
 
 class TestClient(object):
@@ -18,5 +22,20 @@ class Response(object):
         return self.response.status_code
 
     @property
+    def text(self):
+        return self.response.get_data()
+
+    def json(self):
+        return json.loads(self.text)
+
+    @property
+    def headers(self):
+        return self.response.headers
+
+    @property
     def apparent_encoding(self):
-        return chardet.detect(self.response.get_data())['encoding']
+        return chardet.detect(self.text)['encoding']
+
+    @property
+    def encoding(self):
+        return get_encoding_from_headers(self.headers)
