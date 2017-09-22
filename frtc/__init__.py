@@ -30,7 +30,7 @@ class Response(object):
 
     @property
     def headers(self):
-        return self.response.headers
+        return dict(self.response.headers)
 
     @property
     def apparent_encoding(self):
