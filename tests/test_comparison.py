@@ -46,14 +46,23 @@ class ComparisonTestCase(unittest.TestCase):
         self.test_result = self.test_client.get('/foo')
         self.requests_result = requests.get('http://localhost:5020/foo')
 
-    def test_status_code(self):
+    def check_property(self, field_name):
         self.assertEqual(
-            self.test_result.status_code,
-            self.requests_result.status_code
+            getattr(self.test_result, field_name),
+            getattr(self.requests_result, field_name)
         )
 
+    def test_status_code(self):
+        self.check_property('status_code')
+
     def test_apparent_encoding(self):
-        self.assertEqual(
-            self.test_result.apparent_encoding,
-            self.requests_result.apparent_encoding
-        )
+        self.check_property('apparent_encoding')
+
+    def test_encoding(self):
+        self.check_property('encoding')
+
+    def test_text(self):
+        self.check_property('text')
+
+    def test_headers(self):
+        self.check_property('headers')
