@@ -23,7 +23,7 @@ class Response(object):
 
     @property
     def text(self):
-        return self.response.get_data()
+        return self.response.get_data().decode(encoding=self.encoding)
 
     def json(self):
         return json.loads(self.text)
@@ -34,8 +34,8 @@ class Response(object):
 
     @property
     def apparent_encoding(self):
-        return chardet.detect(self.text)['encoding']
+        return chardet.detect(self.response.get_data())['encoding']
 
     @property
     def encoding(self):
-        return get_encoding_from_headers(self.headers)
+        return get_encoding_from_headers(self.headers) or 'utf-8'
