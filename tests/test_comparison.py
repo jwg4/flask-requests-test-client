@@ -82,6 +82,7 @@ class ComparisonTestCase(unittest.TestCase):
 
         self.assertEqual(test_headers, requests_headers)
 
+
 class JSONComparisonTestCase(ComparisonTestCase):
     endpoint = "/blah"
 
