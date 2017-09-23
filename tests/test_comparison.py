@@ -22,8 +22,6 @@ class ComparisonTestCase(unittest.TestCase):
     def setUpClass(cls):
         cls.app = flask.Flask(cls.__name__)
 
-        @cls.app.route(cls.endpoint)
-    
         @cls.app.route('/shutdown')
         def server_shutdown():
             shutdown = flask.request.environ.get('werkzeug.server.shutdown')
