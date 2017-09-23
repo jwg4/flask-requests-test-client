@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='flask-test-requests-client',
-    version='0.1.0',
+    version='0.2.0',
     description='A Flask test client which replicates the requests interface.',
     url='http://github.com/jwg4/flask-test-requests-client',
     author='Jack Grahl',
