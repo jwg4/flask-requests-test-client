@@ -72,10 +72,15 @@ class ComparisonTestCase(unittest.TestCase):
     def test_text(self):
         self.check_property('text')
 
-    @unittest.skip("Currently the test server and debug server do not serve the same headers.")
     def test_headers(self):
-        self.check_property('headers')
+        test_headers = self.test_result.headers
+        requests_headers = self.requests_result.headers
 
+        # These headers just don't get server by the test server.
+        requests_headers.pop('Server')
+        requests_headers.pop('Date')
+
+        self.assertEqual(test_headers, requests_headers)
 
 class JSONComparisonTestCase(ComparisonTestCase):
     endpoint = "/blah"
