@@ -32,6 +32,7 @@ class ComparisonTestCase(unittest.TestCase):
 
         cls.app.add_url_rule(
             cls.endpoint,
+            'test_endpoint',
             cls.endpoint_fn
         )
 
