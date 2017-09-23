@@ -12,14 +12,18 @@ logging.getLogger('werkzeug').setLevel(logging.ERROR)
 
 
 class ComparisonTestCase(unittest.TestCase):
+    endpoint = "/foo"
+
+    @staticmethod
+    def endpoint_fn():
+        return "Foo"
+
     @classmethod
     def setUpClass(cls):
         cls.app = flask.Flask(cls.__name__)
 
-        @cls.app.route('/foo')
-        def foo():
-            return "Foo"
-
+        @cls.app.route(cls.endpoint)
+    
         @cls.app.route('/shutdown')
         def server_shutdown():
             shutdown = flask.request.environ.get('werkzeug.server.shutdown')
@@ -27,6 +31,11 @@ class ComparisonTestCase(unittest.TestCase):
                 flask.abort(500)
             shutdown()
             return 'Shutting down...'
+
+        cls.app.add_url_rule(
+            cls.endpoint_fn,
+            cls.endpoint
+        )
 
         cls.test_client = TestClient(cls.app.test_client())
 
@@ -43,8 +52,8 @@ class ComparisonTestCase(unittest.TestCase):
         requests.get('http://localhost:5020/shutdown')
 
     def setUp(self):
-        self.test_result = self.test_client.get('/foo')
-        self.requests_result = requests.get('http://localhost:5020/foo')
+        self.test_result = self.test_client.get(self.endpoint)
+        self.requests_result = requests.get('http://localhost:5020' + self.endpoint)
 
     def check_property(self, field_name):
         self.assertEqual(
