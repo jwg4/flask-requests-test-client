@@ -17,7 +17,7 @@ This package is an alternative to the flask test client, one which has a very si
 >>> r.status_code
 200
 
->>> r.headers['content-type']
+>>> r.headers['Content-Type']
 'application/json'
 >>> r.encoding
 >>> r.text  # doctest: +ALLOW_UNICODE

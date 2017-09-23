@@ -30,6 +30,10 @@ class Response(object):
 
     @property
     def headers(self):
+        return dict(self.response.headers.items(lower=False))
+
+    @property
+    def _headers(self):
         return dict(self.response.headers.items(lower=True))
 
     @property
@@ -38,6 +42,6 @@ class Response(object):
 
     @property
     def encoding(self):
-        if self.headers['content-type'] == "application/json":
+        if self._headers['content-type'] == "application/json":
             return None
         return get_encoding_from_headers(self.headers) or 'utf-8'
