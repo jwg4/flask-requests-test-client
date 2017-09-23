@@ -20,7 +20,6 @@ This package is an alternative to the flask test client, one which has a very si
 >>> r.headers['content-type']
 'application/json'
 >>> r.encoding
-'utf-8'
 >>> r.text  # doctest: +ALLOW_UNICODE
 '{\n  "msg": "Hello, World!"\n}\n'
 >>> r.json()  # doctest: +ALLOW_UNICODE
