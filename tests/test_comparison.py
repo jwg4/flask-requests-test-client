@@ -33,8 +33,8 @@ class ComparisonTestCase(unittest.TestCase):
             return 'Shutting down...'
 
         cls.app.add_url_rule(
-            cls.endpoint_fn,
-            cls.endpoint
+            cls.endpoint,
+            cls.endpoint_fn
         )
 
         cls.test_client = TestClient(cls.app.test_client())
@@ -76,3 +76,16 @@ class ComparisonTestCase(unittest.TestCase):
     @unittest.skip("Currently the test server and debug server do not serve the same headers.")
     def test_headers(self):
         self.check_property('headers')
+
+
+class JSONComparisonTestCase(ComparisonTestCase):
+    endpoint = "/blah"
+
+    @staticmethod
+    def endpoint_fn():
+        data = {
+            'chico': 0.789,
+            'harpo': 54,
+            'groucho': "ZVBXRPL"
+        }
+        return flask.jsonify(data)
