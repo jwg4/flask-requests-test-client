@@ -23,7 +23,7 @@ class Response(object):
 
     @property
     def text(self):
-        return self.response.get_data().decode(encoding=self.encoding)
+        return self.response.get_data().decode(encoding=self.apparent_encoding)
 
     def json(self):
         return json.loads(self.text)
@@ -38,4 +38,6 @@ class Response(object):
 
     @property
     def encoding(self):
+        if self.headers['content-type'] == "application/json":
+            return None
         return get_encoding_from_headers(self.headers) or 'utf-8'
