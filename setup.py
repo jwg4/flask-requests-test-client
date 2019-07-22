@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='flask-test-requests-client',
-    version='0.2.0',
+    version='0.2.1',
     description='A Flask test client which replicates the requests interface.',
     long_description="""Instead of using the flask test client, you can use this package
 which does a similar job. This wrapper to the flask test client has an API based on the

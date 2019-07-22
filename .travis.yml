@@ -16,3 +16,11 @@ script:
 - pytest --doctest-glob='*.md'
 notifications:
   email: false
+deploy:
+  provider: pypi
+  user: jwg
+  on:
+    python: '3.5'
+    branch: 'master'
+  password:
+    secure: FA5yU3T25CDugu1IGrzyM/LBxprsUzgcE4wqgISNPFJbw2xasKO+gincW/LVt/Ag4wPX78xrnBlb5LI7ja5iRfGgjPurKM38fJcKVEPslD/ZkiYKyJPTYTGvxqkQOyCiNq+8snLrqvN21hNlGYl6IFQ+DESCVVuEjtDoLLz+eEfoUWZvn91P6PKX0a5TL5TMAay7QfkYPzgMpd2KRYZIESmNqltbbQmw7sQGmZRoUDj/A6JCdnpchy8DIW9plK/KbugJhDWEKICXd+Lp2LWUbWV03iTK0DmYZNE9K1x+lyiKyP0rRsigTY02rXt82nMCgUs7H9AfPBZar2ZvC1AIc5PYcFv376nXpM+r824T7qomJF2mgN0fGSqDr9ckuCbqlI/fYVuRdaLkizII7vdfsWrQ1JBL2hXvrDhRbWYw6hnz6M/OHONZclWin+z+und/iHUCPJf/7g+2onz8+SAr9+CiplBFoEheT3sYjTShnTzV51WMU8aoPiBzSVOFc7IswfaAJwMEUmt0a74Im1LeG3kH96sfNi1RnZj1fKyFABNC5Jbug6zkvjSImWSmz6mHi8P9SFac3IsJhPN9lJCu4nVXkY7PkUh0R4MfF5IoleN97mExUhHxjybB7eqZiBcy1cBTTxahTl5+oRlG9bpkHSG7C4A8PZ9NqksmkZXnYmc=
