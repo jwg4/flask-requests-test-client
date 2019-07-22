@@ -1,6 +1,6 @@
 # Flask Requests Test Client
 
-This package is an alternative to the flask test client, one which has a very similar interface to the *requests* package. This allows the same tests to be re-used against the test client (using this package) and an actual HTTP server (using requests).
+This package is an alternative to the flask test client, one which has a very similar interface to the *requests* package. This allows the same tests/monitoring to be re-used against the test client (using this package) and an actual HTTP server (using requests).
 
 ```
 >>> from flask import Flask, jsonify
