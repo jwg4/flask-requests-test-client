@@ -10,7 +10,7 @@ Jinja2==2.11.3
 MarkupSafe==1.0
 mccabe==0.3.1
 pep8==1.7.0
-py==1.4.34
+py==1.10.0
 pyflakes==1.0.0
 pytest==3.2.2
 requests==2.18.4
